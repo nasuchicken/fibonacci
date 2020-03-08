@@ -1,13 +1,18 @@
 'use strict';
 
-function fib(n) {
-  if (n === 0) {
-    return 0;
-  } else if (n === 1 ){
-      return 1;
-  }
-  return fib(n-1) + fib(n-2);
+const map = new Map;
+map.set(0,0)
+map.set(1,1)
 
+function fib(n) {
+    
+  if (map.has(n)) {
+    return map.get(n);
+  } 
+
+  const value = fib(n-1) + fib(n-2);
+  map.set(n, value);
+  return value;
 }
 
 const length = 40;
